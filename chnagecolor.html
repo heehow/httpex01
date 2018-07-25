@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript | .querySelectorAll()</title>
+  </head>
+
+    <script>
+        function onClick() {
+            var idx =  document.getElementById('color').value;
+
+            // class 값이 "abc" 인 모든 것을 선택. 
+            // var jb = document.querySelectorAll( '.abc' );
+
+            // class 값이 "abc", "def" 인 것을 선택
+            var jb = document.querySelectorAll( '.abc, .def' );
+            var jb2 = document.querySelectorAll( '.adasdf' );
+            var jb3 = document.getElementsByClassName( 'abc' );
+            console.log(jb);
+            console.log(jb2);
+            console.log(jb3);
+
+            // class 값이 "xyz" 인 첫번쨰 요소에 접근
+            // document.querySelector( '.xyz' )
+
+
+            for(i=0;i<jb.length;i++) {
+                jb[i].style.color = (i==idx ? 'red' : 'black');
+            }
+        }
+    </script>
+
+  <body>
+    <p>JavaScript | .querySelectorAll()</p>
+
+    <p id="0" class="abc">Lorem Ipsum Dolor0</p>
+    <p id="1" class="abc">Lorem Ipsum Dolor1</p>
+    <p id="2" class="abc">Lorem Ipsum Dolor2</p>
+    <p id="3" class="def">Lorem Ipsum Dolor3</p>
+    <div>
+        <p class="abc">Lorem Ipsum Dolor4</p>
+    </div>
+
+    <form>
+        title string : <input type="text" name="color" id="color" value="0"/>
+    </form>
+    <br>
+    <button onclick="onClick();">change color</button>
+
+  </body>
+</html>
